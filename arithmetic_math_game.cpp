@@ -71,11 +71,16 @@ void play(){
 		 	q1 = rand()%limit;
 		 	q2 = rand()%limit;
 
-		 	int tmpOp = rand()%3;
+		 	int tmpOp = rand()%5;
+		 	if(tmpOp>2 && q1<q2) tmpOp= rand()%3; // if the value of tmpOP is 3 or 4 then they will
+                //perform devision and if q1 is less than q2 hence the operations
+                // will be changed to + or - or *
 	 		switch(tmpOp){
-			      case 0:operation = '+'; break;
+			      case 0: operation = '+'; break;
 				  case 1: operation = '-'; break;
-				  case 2:operation = '*'; break;
+				  case 2: operation = '*'; break;
+				  case 3: operation = '/';break;
+				  case 4: operation = '%';break;
 	 		}
 
 		 	cout<<"("<<(i+1)<<"). ";
@@ -87,6 +92,8 @@ void play(){
 			      case '+': correctAns = q1 + q2; break;
 				  case '-': correctAns = q1 - q2; break;
 				  case '*': correctAns = q1 * q2; break;
+				  case '/': correctAns = q1 / q2; break;
+				  case '%': correctAns =(int) q1 % (int)q2; break;
 	 		}
 
 			if( correctAns == ans ){
