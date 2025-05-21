@@ -25,7 +25,10 @@ jobs:
       ECR_REGISTRY: ${{ needs.job1.outputs.ecr_registry }}
     steps:
       - name: Dump all job1 outputs
-        run: echo 'Job1 outputs: ${{ toJson(needs.job1.outputs) }}'
+        run: |
+          echo "Job1 outputs:"
+          echo "${{ toJson(needs.job1.outputs) }}"
+
 
       - name: Use the registry
         run: echo "Pushing to $ECR_REGISTRY"
